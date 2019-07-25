@@ -13,7 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 
-<link rel="stylesheet" href="{{url('/backend')}}/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{url('/backend')}}/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{url('/backend')}}/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{url('/backend')}}/css/AdminLTE.css">
   <link rel="stylesheet" href="{{url('/backend')}}/css/_all-skins.min.css">
@@ -50,7 +50,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <!-- The user image in the navbar-->
               <img src="{{url('/backend')}}/images/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              {{-- <span class="hidden-xs">{{Auth::user()->name}}</span> --}}
+              <span class="hidden-xs">{{Auth::user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -58,7 +58,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <img src="{{url('/backend')}}/images/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  {{-- {{Auth::user()->name}} - Web Developer --}}
+                  {{Auth::user()->name}} - Web Developer
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -70,7 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="{{ asset('logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{ route('logout') }}" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>

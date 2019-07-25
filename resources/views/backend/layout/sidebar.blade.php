@@ -9,7 +9,7 @@
           <img src="{{url('/backend')}}/images/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          {{-- <p>{{ Auth::user()->name }}</p> --}}
+          <p>{{ Auth::user()->name }}</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -31,8 +31,8 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li><a href="{{ asset('admin/category') }}"><i class="fa fa-th"></i> <span>Category</span></a></li>
+      <li class="active"><a href="{{route('home')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="#"><i class="fa fa-th"></i> <span>Category</span></a></li>
         <li><a href="#"><i class="fa fa-users"></i> <span>User</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Product</span>
