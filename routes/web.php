@@ -54,6 +54,8 @@ Route::group(['namespace' => 'admin'], function () {
             Route::post('/delete/{id}','UserController@getUserDelete')->name('post_user_delete');
 
             Route::get('/search','UserController@searchUser')->name('search_user');
+
+            Route::post('/api-check-email','UserController@checkEmail');
         });
     });
 });

@@ -52,7 +52,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{route('user_list')}}">Danh sách quản trị viên</a></li>
-            <li><a href="">Thêm mới quản trị viên</a></li>
+            <li><a href="{{route('get_user_add')}}">Thêm mới quản trị viên</a></li>
           </ul>
       </li>
 

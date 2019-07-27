@@ -7,7 +7,7 @@
       @csrf
   	<div class="form-group">
   		<label for="">Tên quản trị viên</label>
-          <input type="text" class="form-control" name="name" value="{{old('name') }}" placeholder="Nhập tên ...">
+          <input type="text" class="form-control" name="name"  value="{{old('name') }}" placeholder="Nhập tên ...">
           @if ($errors->has('name'))
            <p class="text-danger">{{ $errors->first('name') }}</p>
           @endif
@@ -15,11 +15,11 @@
 
     <div class="form-group">
       <label for="">Email</label>
-          <input type="text" class="form-control" name="email" value="{{old('email') }}" placeholder="Nhập email...">
+          <input type="text" class="form-control" id="user_email" name="email" value="{{old('email') }}" placeholder="Nhập email...">
           @if ($errors->has('email'))
            <p class="text-danger">{{ $errors->first('email') }}</p>
           @endif
-           <p class="text-danger" style="display: none">lỗi</p>
+           <p class="text-danger" id="ajax_email" ></p>
     </div>
     <div class="form-group" >
       <label>Ảnh đại diện</label>
@@ -28,18 +28,20 @@
     </div>
   	<div class="form-group">
       <label for="">Mật khẩu</label>
-          <input type="password" class="form-control" name="password"  placeholder="Nhập mật khẩu...">
+          <input type="password" class="form-control" name="password" id="password"  placeholder="Nhập mật khẩu...">
           @if ($errors->has('password'))
            <p class="text-danger">{{ $errors->first('password') }}</p>
           @endif
+           <p class="text-danger" id="error_password" ></p>
     </div>
 
     <div class="form-group">
       <label for="">Nhập lại mật khẩu</label>
-          <input type="password" class="form-control" name="confirm_password"  placeholder="Nhập mật khẩu...">
+          <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Nhập mật khẩu...">
           @if ($errors->has('confirm_password'))
            <p class="text-danger">{{ $errors->first('confirm_password') }}</p>
           @endif
+          <p class="text-danger" id="error_confirm_password" ></p>
     </div>
 
       <button type="submit" class="btn btn-primary">Thêm mới</button>
@@ -66,9 +68,45 @@
             $('#img').click();
         });
     });
-  $(document).ready(function() {
-      
-  });
+       ///ajax check_emal
+      $('#user_email').change(function(){
+         $email=$('#user_email').val();
+         var _token=$('input[name="_token"]').val();
+        $.ajax({
+          url:'/admin/user/api-check-email',
+          type:'post',
+          dataType:'json',
+          data:{
+            email:$email,
+            _token:_token,
+          },
+          success:function(result)
+          {
+            if(result.status==false)
+            $('#ajax_email').html(result.error);
+          }
+      });
+      });
+      ///js check confirm_password
+      $('#confirm_password').change(function(){
+          $password=$('#password').val();
+          $confirm_password=$('#confirm_password').val();
+          if($password==''){
+            $('#error_password').html('Bạn phải nhập mật khẩu trước !');
+            $('#confirm_password').val('');
+          }
+          if($password!= $confirm_password && $password!='')
+          {
+            $('#error_password').html('');
+            $('#error_confirm_password').html('Mật khẩu nhập lại không chính sác !');
+            $('#confirm_password').val('');
+          }
+          if($password== $confirm_password)
+          {
+            $('#error_password').html('');
+            $('#error_confirm_password').html('');
+          }
+      })
 
 </script>
 @stop()

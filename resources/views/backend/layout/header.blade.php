@@ -32,9 +32,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Logo -->
     <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>VI</b>TI</span>
+      <span class="logo-mini"><b>TT</b>H</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Shop</b>TTH</span>
     </a>
 
     <!-- Header Navbar -->
