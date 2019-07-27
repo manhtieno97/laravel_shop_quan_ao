@@ -11,6 +11,6 @@
 <script src="{{url('/backend')}}/js/jquery.min.js"></script>
 <script src="{{url('/backend')}}/js/bootstrap.min.js"></script>
 <script src="{{url('/backend')}}/js/adminlte.min.js"></script>
-
+@yield('js')
 </body>
 </html>
