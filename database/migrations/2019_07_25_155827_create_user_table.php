@@ -21,6 +21,7 @@ class CreateUserTable extends Migration
             $table->string('confirm_password');
             $table->string('image')->nullable();
             $table->tinyInteger('level')->default(1);
+            $table->rememberToken();
             $table->timestamps();
         });
     }
